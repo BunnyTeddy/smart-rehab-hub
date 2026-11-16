@@ -6,6 +6,7 @@ __pycache__/
 .dart_tool/
 .flutter-plugins-dependencies
 .gradle/
+.kotlin/
 node_modules/
 build/
 build-*/
