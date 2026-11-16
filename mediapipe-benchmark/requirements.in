@@ -1,0 +1,6 @@
+# MediaPipe 1.0.1/1.0.0 aarch64 khởi tạo model bằng lệnh AES mà
+# Cortex-A72 trên Raspberry Pi 4 không hỗ trợ. 0.10.18 là wheel ARM64
+# manylinux2014 cuối cùng tương thích với Python 3.12 và NumPy 1.x.
+mediapipe==0.10.18
+numpy==1.26.4
+opencv-contrib-python==4.10.0.84

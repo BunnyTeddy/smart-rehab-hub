@@ -1,0 +1,1163 @@
+{
+  "version": "1.2.1",
+  "protocol_version": 2,
+  "exercises": [
+    {
+      "id": "squat",
+      "name": "Squat",
+      "group": "Đứng–ngồi",
+      "side_mode": "auto",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng bên tập; thấy trọn các khớp cần đo.",
+      "angle_label": "Góc gối",
+      "joint": "knee",
+      "algorithm_version": "product-low-rom-1.2.1",
+      "voice_key": "prepare_squat",
+      "equipment": "Không cần dụng cụ. Chọn khoảng sàn trống.",
+      "steps": [
+        "Đứng thẳng, hai chân vững.",
+        "Gập hông và gối, hạ người trong mức thoải mái.",
+        "Đứng thẳng trở lại."
+      ],
+      "visible_joints": [
+        "hông",
+        "gối",
+        "cổ chân"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.59,
+            0.28
+          ],
+          "shoulder": [
+            0.55,
+            0.4
+          ],
+          "hip": [
+            0.34,
+            0.59
+          ],
+          "elbow": [
+            0.7,
+            0.43
+          ],
+          "wrist": [
+            0.84,
+            0.43
+          ],
+          "knee": [
+            0.62,
+            0.72
+          ],
+          "ankle": [
+            0.52,
+            0.92
+          ],
+          "other_knee": [
+            0.51,
+            0.72
+          ],
+          "other_ankle": [
+            0.41,
+            0.92
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        }
+      ],
+      "chair": false,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": false
+    },
+    {
+      "id": "biceps_curl",
+      "name": "Gập tay",
+      "group": "Tay–vai",
+      "side_mode": "required",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng bên tập; thấy trọn các khớp cần đo.",
+      "angle_label": "Góc khuỷu tay",
+      "joint": "elbow",
+      "algorithm_version": "product-low-rom-1.2.1",
+      "voice_key": "prepare_biceps_curl",
+      "equipment": "Không cần tạ để tập làm quen.",
+      "steps": [
+        "Thả tay tập dọc thân.",
+        "Gập khuỷu, đưa bàn tay lên gần vai.",
+        "Hạ tay chậm về tư thế đầu."
+      ],
+      "visible_joints": [
+        "vai",
+        "khuỷu tay",
+        "cổ tay"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.49,
+            0.42
+          ],
+          "wrist": [
+            0.61,
+            0.29
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        }
+      ],
+      "chair": false,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": true,
+      "both_camera_text": "Đặt webcam nhìn chéo khoảng 45 độ, để thấy rõ các khớp cần đo ở cả hai bên; tránh để bên này che bên kia."
+    },
+    {
+      "id": "shoulder_flexion",
+      "name": "Nâng tay ra trước",
+      "group": "Tay–vai",
+      "side_mode": "required",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng bên tập; thấy vai, hông và trọn tay tập. Không cần đưa chân vào khung hình.",
+      "angle_label": "Góc nâng tay",
+      "joint": "shoulder",
+      "algorithm_version": "product-low-rom-1.2.1",
+      "voice_key": "prepare_shoulder_flexion",
+      "equipment": "Không cần tạ; khoảng trống phía trước.",
+      "steps": [
+        "Đứng vững, thả tay tập dọc thân.",
+        "Nâng tay ra trước trong mức thoải mái.",
+        "Hạ tay chậm về bên thân."
+      ],
+      "visible_joints": [
+        "vai",
+        "khuỷu tay",
+        "cổ tay",
+        "hông"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.68,
+            0.25
+          ],
+          "wrist": [
+            0.88,
+            0.25
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        }
+      ],
+      "chair": false,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": true,
+      "both_camera_text": "Đặt webcam nhìn chéo khoảng 45 độ, để thấy rõ các khớp cần đo ở cả hai bên; tránh để bên này che bên kia."
+    },
+    {
+      "id": "shoulder_abduction",
+      "name": "Dạng tay sang bên",
+      "group": "Tay–vai",
+      "side_mode": "required",
+      "camera": "front",
+      "camera_text": "Đặt webcam nhìn chính diện; thấy vai, hông và trọn tay tập. Không cần đưa chân vào khung hình.",
+      "angle_label": "Góc dạng vai",
+      "joint": "shoulder",
+      "algorithm_version": "product-low-rom-1.2.1",
+      "voice_key": "prepare_shoulder_abduction",
+      "equipment": "Không cần tạ; khoảng trống hai bên.",
+      "steps": [
+        "Đứng vững, thả tay tập dọc thân.",
+        "Đưa tay sang bên, giữ thân thẳng.",
+        "Hạ tay chậm về vị trí đầu."
+      ],
+      "visible_joints": [
+        "hai vai",
+        "khuỷu tay bên tập",
+        "cổ tay bên tập",
+        "hông bên tập"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.68,
+            0.25
+          ],
+          "wrist": [
+            0.88,
+            0.25
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        }
+      ],
+      "chair": false,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": true,
+      "both_camera_text": "Đặt webcam chính diện, thấy hai vai, hai hông và trọn hai tay."
+    }
+  ],
+  "retired_exercises": [
+    {
+      "id": "sit_to_stand",
+      "name": "Đứng lên – ngồi xuống ghế",
+      "group": "Đứng–ngồi",
+      "side_mode": "auto",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng, thấy thân, ghế và chân từ lúc ngồi đến lúc đứng.",
+      "angle_label": "Góc gối",
+      "joint": "knee",
+      "algorithm_version": "phase1-0.2.0-draft",
+      "voice_key": "prepare_sit_to_stand",
+      "equipment": "Ghế chắc, không bánh xe, đặt sát tường.",
+      "steps": [
+        "Ngồi vững, hai bàn chân chạm sàn.",
+        "Đứng lên, duỗi hông và gối.",
+        "Hạ người có kiểm soát về ghế."
+      ],
+      "visible_joints": [
+        "vai",
+        "hông",
+        "gối",
+        "cổ chân"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        }
+      ],
+      "chair": true,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": false
+    },
+    {
+      "id": "seated_knee_extension",
+      "name": "Duỗi gối khi ngồi",
+      "group": "Chân–hông",
+      "side_mode": "required",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng bên tập; thấy trọn các khớp cần đo.",
+      "angle_label": "Góc gối",
+      "joint": "knee",
+      "algorithm_version": "phase1-0.2.0-draft",
+      "voice_key": "prepare_seated_knee_extension",
+      "equipment": "Ghế chắc, không bánh xe; chừa khoảng trống trước chân.",
+      "steps": [
+        "Ngồi thẳng, bàn chân chạm sàn.",
+        "Duỗi chân tập ra trước, giữ đùi yên.",
+        "Hạ chân về vị trí ban đầu."
+      ],
+      "visible_joints": [
+        "vai",
+        "hông",
+        "gối",
+        "cổ chân"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        },
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.94,
+            0.58
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        },
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        }
+      ],
+      "chair": true,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": true,
+      "both_camera_text": "Đặt webcam nhìn chéo khoảng 45 độ, để thấy rõ các khớp cần đo ở cả hai bên; tránh để bên này che bên kia."
+    },
+    {
+      "id": "seated_hip_flexion",
+      "name": "Nâng gối khi ngồi",
+      "group": "Chân–hông",
+      "side_mode": "required",
+      "camera": "side",
+      "camera_text": "Đặt webcam nhìn nghiêng bên tập; thấy trọn các khớp cần đo.",
+      "angle_label": "Góc hông",
+      "joint": "hip",
+      "algorithm_version": "phase1-0.2.0-draft",
+      "voice_key": "prepare_seated_hip_flexion",
+      "equipment": "Ghế chắc, không bánh xe.",
+      "steps": [
+        "Ngồi thẳng, hai chân chạm sàn.",
+        "Nâng gối bên tập, giữ gối gập.",
+        "Hạ chân chậm về sàn."
+      ],
+      "visible_joints": [
+        "vai",
+        "hông",
+        "gối",
+        "cổ chân"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        },
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.64,
+            0.39
+          ],
+          "ankle": [
+            0.68,
+            0.7
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        },
+        {
+          "head": [
+            0.38,
+            0.16
+          ],
+          "shoulder": [
+            0.38,
+            0.28
+          ],
+          "hip": [
+            0.38,
+            0.55
+          ],
+          "elbow": [
+            0.4,
+            0.42
+          ],
+          "wrist": [
+            0.47,
+            0.54
+          ],
+          "knee": [
+            0.66,
+            0.57
+          ],
+          "ankle": [
+            0.66,
+            0.88
+          ],
+          "other_knee": [
+            0.58,
+            0.59
+          ],
+          "other_ankle": [
+            0.58,
+            0.88
+          ]
+        }
+      ],
+      "chair": true,
+      "support": false,
+      "validation": "pending_human_review",
+      "bilateral": true,
+      "both_camera_text": "Đặt webcam nhìn chéo khoảng 45 độ, để thấy rõ các khớp cần đo ở cả hai bên; tránh để bên này che bên kia."
+    },
+    {
+      "id": "standing_hip_abduction",
+      "name": "Đưa chân sang bên có điểm tựa",
+      "group": "Chân–hông",
+      "side_mode": "required",
+      "camera": "front",
+      "camera_text": "Đặt webcam nhìn chính diện; chừa khoảng trống hai bên và thấy cả bàn chân.",
+      "angle_label": "Góc hông",
+      "joint": "hip",
+      "algorithm_version": "phase1-0.2.0-draft",
+      "voice_key": "prepare_standing_hip_abduction",
+      "equipment": "Bàn hoặc mặt tựa chắc, vừa tầm tay; không dùng vật dễ trượt.",
+      "steps": [
+        "Đứng thẳng, vịn điểm tựa chắc.",
+        "Đưa chân tập sang bên, giữ thân yên.",
+        "Đưa chân trở lại cạnh chân trụ."
+      ],
+      "visible_joints": [
+        "hai vai",
+        "hai hông",
+        "hai gối",
+        "hai cổ chân"
+      ],
+      "illustrations": [
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.64,
+            0.69
+          ],
+          "ankle": [
+            0.8,
+            0.88
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        },
+        {
+          "head": [
+            0.48,
+            0.13
+          ],
+          "shoulder": [
+            0.48,
+            0.25
+          ],
+          "hip": [
+            0.48,
+            0.53
+          ],
+          "elbow": [
+            0.48,
+            0.4
+          ],
+          "wrist": [
+            0.48,
+            0.54
+          ],
+          "knee": [
+            0.5,
+            0.72
+          ],
+          "ankle": [
+            0.5,
+            0.91
+          ],
+          "other_knee": [
+            0.39,
+            0.72
+          ],
+          "other_ankle": [
+            0.38,
+            0.91
+          ]
+        }
+      ],
+      "chair": false,
+      "support": true,
+      "validation": "pending_human_review",
+      "bilateral": false
+    }
+  ]
+}

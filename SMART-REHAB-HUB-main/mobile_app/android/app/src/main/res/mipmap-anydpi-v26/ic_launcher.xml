@@ -1,0 +1,4 @@
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/rehab_green" />
+    <foreground android:drawable="@drawable/rehab_mark" />
+</adaptive-icon>

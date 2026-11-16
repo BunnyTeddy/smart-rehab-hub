@@ -1,0 +1,15 @@
+{
+  "hub_id": "hub1",
+  "challenge": "testchallenge",
+  "key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+  "packet": {
+    "seq": 1,
+    "nonce": "AAECAwQFBgcICQoL",
+    "data": "PCC5cOfftmn4JLup0oYcCKHspUSREi0ZXEXJp3UcYu1odIzGjaln+kWGAh9BHKAf0BQAnj11ufJgVWA="
+  },
+  "expected": {
+    "ok": true,
+    "code": "paired",
+    "hub_id": "hub1"
+  }
+}

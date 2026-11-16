@@ -1,0 +1,249 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$uid": {
+        "profile": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid"
+        }
+      }
+    },
+    "demo_e2e_v1": {
+      "grants": {
+        "$sid": {
+          ".read": false,
+          ".write": false
+        }
+      },
+      "sessions": {
+        "$sid": {
+          ".read": "auth != null && (root.child('demo_e2e_v1/grants').child($sid).child('device_uid').val() === auth.uid || root.child('demo_e2e_v1/grants').child($sid).child('owner_uid').val() === auth.uid || root.child('demo_e2e_v1/grants').child($sid).child('viewers').child(auth.uid).val() === true)",
+          "meta": {
+            ".write": "auth != null && auth.uid === root.child('demo_e2e_v1/grants').child($sid).child('device_uid').val() && newData.exists() && (!data.exists() || (newData.child('session_id').val() === data.child('session_id').val() && newData.child('exercise').val() === data.child('exercise').val() && newData.child('source').val() === data.child('source').val() && newData.child('repeat').val() === data.child('repeat').val() && newData.child('schema_version').val() === data.child('schema_version').val() && newData.child('algorithm_version').val() === data.child('algorithm_version').val() && newData.child('created_at').val() === data.child('created_at').val() && newData.child('demo_only').val() === data.child('demo_only').val() && newData.child('form_status').val() === data.child('form_status').val() && newData.child('audio_enabled').val() === data.child('audio_enabled').val() && newData.child('timing_definition').val() === data.child('timing_definition').val() && newData.child('raw_video').val() === data.child('raw_video').val()))",
+            ".validate": "newData.hasChildren(['session_id','exercise','source','schema_version','created_at']) && newData.child('session_id').val() === $sid && newData.child('schema_version').val() === 2 && newData.child('form_status').val() === 'not_evaluated'",
+            "session_id": {
+              ".validate": true
+            },
+            "exercise": {
+              ".validate": true
+            },
+            "source": {
+              ".validate": true
+            },
+            "repeat": {
+              ".validate": true
+            },
+            "schema_version": {
+              ".validate": true
+            },
+            "algorithm_version": {
+              ".validate": true
+            },
+            "created_at": {
+              ".validate": true
+            },
+            "demo_only": {
+              ".validate": true
+            },
+            "form_status": {
+              ".validate": true
+            },
+            "audio_enabled": {
+              ".validate": true
+            },
+            "timing_definition": {
+              ".validate": true
+            },
+            "raw_video": {
+              ".validate": true
+            },
+            "$other": {
+              ".validate": false
+            }
+          },
+          "latest": {
+            ".write": "auth != null && auth.uid === root.child('demo_e2e_v1/grants').child($sid).child('device_uid').val() && newData.exists() && !root.child('demo_e2e_v1/sessions').child($sid).child('summary').exists()",
+            ".validate": "newData.hasChildren(['schema_version','session_id','exercise','sequence','sample_timestamp_ms','timestamp','frame_received_epoch_ms','reps','phase','tracking_status','form_status','source']) && newData.child('session_id').val() === $sid && newData.child('form_status').val() === 'not_evaluated' && (!data.exists() || (newData.child('sequence').val() > data.child('sequence').val() && newData.child('sample_timestamp_ms').val() > data.child('sample_timestamp_ms').val() && newData.child('reps').val() >= data.child('reps').val() && newData.child('exercise').val() === data.child('exercise').val() && (!data.child('side').exists() || newData.child('side').val() === data.child('side').val()))) && (newData.child('tracking_status').val() !== 'tracking' || (newData.child('angle').isNumber() && newData.child('side').isString())) && (newData.child('tracking_status').val() === 'tracking' || !newData.child('angle').exists())",
+            "schema_version": {
+              ".validate": "newData.val() === 2"
+            },
+            "session_id": {
+              ".validate": "newData.val() === $sid"
+            },
+            "exercise": {
+              ".validate": "newData.val() === 'squat' || newData.val() === 'biceps_curl' || newData.val() === 'shoulder_press' || newData.val() === 'bent_over_row' || newData.val() === 'hanging_leg_raise'"
+            },
+            "sequence": {
+              ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() % 1 === 0"
+            },
+            "sample_timestamp_ms": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "reps": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() % 1 === 0"
+            },
+            "angle": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 180"
+            },
+            "raw_angle": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 180"
+            },
+            "visibility": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1"
+            },
+            "side": {
+              ".validate": "newData.val() === 'left' || newData.val() === 'right'"
+            },
+            "tracking_status": {
+              ".validate": "newData.val() === 'tracking' || newData.val() === 'lost' || newData.val() === 'selecting_side'"
+            },
+            "phase": {
+              ".validate": "newData.val() === 'WAIT_START' || newData.val() === 'READY' || newData.val() === 'OUTBOUND' || newData.val() === 'AT_TARGET' || newData.val() === 'RETURNING'"
+            },
+            "source": {
+              ".validate": "newData.val() === 'camera' || newData.val() === 'replay'"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber() && newData.val() <= now + 5000 && newData.val() >= now - 5000"
+            },
+            "frame_received_epoch_ms": {
+              ".validate": "newData.isNumber() && newData.val() <= now + 5000 && newData.val() >= now - 5000"
+            },
+            "algorithm_version": {
+              ".validate": "newData.isString()"
+            },
+            "joint": {
+              ".validate": "newData.isString()"
+            },
+            "reason": {
+              ".validate": "newData.isString()"
+            },
+            "form_status": {
+              ".validate": "newData.val() === 'not_evaluated'"
+            },
+            "inference_complete_epoch_ms": {
+              ".validate": "newData.isNumber()"
+            },
+            "algorithm_complete_epoch_ms": {
+              ".validate": "newData.isNumber()"
+            },
+            "$other": {
+              ".validate": false
+            }
+          },
+          "events": {
+            "$event": {
+              ".write": "auth != null && auth.uid === root.child('demo_e2e_v1/grants').child($sid).child('device_uid').val() && newData.exists() && (!data.exists() || (newData.child('id').val() === data.child('id').val() && newData.child('rep').val() === data.child('rep').val() && newData.child('start_ms').val() === data.child('start_ms').val() && newData.child('target_ms').val() === data.child('target_ms').val() && newData.child('end_ms').val() === data.child('end_ms').val() && newData.child('duration_ms').val() === data.child('duration_ms').val() && newData.child('min_angle_deg').val() === data.child('min_angle_deg').val() && newData.child('max_angle_deg').val() === data.child('max_angle_deg').val() && newData.child('rom_deg').val() === data.child('rom_deg').val()))",
+              ".validate": "newData.hasChildren(['id','rep','start_ms','target_ms','end_ms','duration_ms','min_angle_deg','max_angle_deg','rom_deg']) && newData.child('rep').isNumber() && newData.child('rep').val() >= 1 && newData.child('start_ms').val() <= newData.child('target_ms').val() && newData.child('target_ms').val() <= newData.child('end_ms').val()",
+              "id": {
+                ".validate": true
+              },
+              "rep": {
+                ".validate": true
+              },
+              "start_ms": {
+                ".validate": true
+              },
+              "target_ms": {
+                ".validate": true
+              },
+              "end_ms": {
+                ".validate": true
+              },
+              "duration_ms": {
+                ".validate": true
+              },
+              "min_angle_deg": {
+                ".validate": true
+              },
+              "max_angle_deg": {
+                ".validate": true
+              },
+              "rom_deg": {
+                ".validate": true
+              },
+              "$other": {
+                ".validate": false
+              }
+            }
+          },
+          "summary": {
+            ".write": "auth != null && auth.uid === root.child('demo_e2e_v1/grants').child($sid).child('device_uid').val() && newData.exists() && (!data.exists() || (newData.child('session_id').val() === data.child('session_id').val() && newData.child('exercise').val() === data.child('exercise').val() && newData.child('source').val() === data.child('source').val() && newData.child('repeat').val() === data.child('repeat').val() && newData.child('status').val() === data.child('status').val() && newData.child('error').val() === data.child('error').val() && newData.child('ended_at').val() === data.child('ended_at').val() && newData.child('reps').val() === data.child('reps').val() && newData.child('measured_samples').val() === data.child('measured_samples').val() && newData.child('elapsed_s').val() === data.child('elapsed_s').val() && newData.child('inference_fps').val() === data.child('inference_fps').val() && newData.child('algorithm_p95_ms').val() === data.child('algorithm_p95_ms').val() && newData.child('inference_p95_ms').val() === data.child('inference_p95_ms').val() && newData.child('detector_init_ms').val() === data.child('detector_init_ms').val() && newData.child('recording_frames').val() === data.child('recording_frames').val() && newData.child('recording_dropped').val() === data.child('recording_dropped').val() && newData.child('recording_error').val() === data.child('recording_error').val() && newData.child('labels_status').val() === data.child('labels_status').val() && newData.child('cloud_configured').val() === data.child('cloud_configured').val() && newData.child('audio_enabled').val() === data.child('audio_enabled').val() && newData.child('form_status').val() === data.child('form_status').val()))",
+            ".validate": "newData.hasChildren(['session_id','exercise','status','reps','ended_at']) && newData.child('session_id').val() === $sid && newData.child('reps').isNumber() && newData.child('reps').val() >= 0 && newData.child('ended_at').isNumber()",
+            "session_id": {
+              ".validate": true
+            },
+            "exercise": {
+              ".validate": true
+            },
+            "source": {
+              ".validate": true
+            },
+            "repeat": {
+              ".validate": true
+            },
+            "status": {
+              ".validate": true
+            },
+            "error": {
+              ".validate": true
+            },
+            "ended_at": {
+              ".validate": true
+            },
+            "reps": {
+              ".validate": true
+            },
+            "measured_samples": {
+              ".validate": true
+            },
+            "elapsed_s": {
+              ".validate": true
+            },
+            "inference_fps": {
+              ".validate": true
+            },
+            "algorithm_p95_ms": {
+              ".validate": true
+            },
+            "inference_p95_ms": {
+              ".validate": true
+            },
+            "detector_init_ms": {
+              ".validate": true
+            },
+            "recording_frames": {
+              ".validate": true
+            },
+            "recording_dropped": {
+              ".validate": true
+            },
+            "recording_error": {
+              ".validate": true
+            },
+            "labels_status": {
+              ".validate": true
+            },
+            "cloud_configured": {
+              ".validate": true
+            },
+            "audio_enabled": {
+              ".validate": true
+            },
+            "form_status": {
+              ".validate": true
+            },
+            "$other": {
+              ".validate": false
+            }
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      }
+    }
+  }
+}

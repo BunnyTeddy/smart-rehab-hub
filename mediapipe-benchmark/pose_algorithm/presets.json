@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "purpose": "Technical demo presets, not therapeutic targets",
+  "selection_window_ms": 300,
+  "selection_visibility": 0.7,
+  "tracking_visibility": 0.5,
+  "max_gap_ms": 350,
+  "ema_tau_ms": 50,
+  "dwell_ms": 80,
+  "min_rep_ms": 500,
+  "exercises": {
+    "squat": {"joint": "knee", "start": 150, "target": 115},
+    "biceps_curl": {"joint": "elbow", "start": 145, "target": 100},
+    "shoulder_press": {"joint": "elbow", "start": 120, "target": 155},
+    "bent_over_row": {"joint": "elbow", "start": 150, "target": 100},
+    "hanging_leg_raise": {"joint": "hip", "start": 150, "target": 110}
+  }
+}

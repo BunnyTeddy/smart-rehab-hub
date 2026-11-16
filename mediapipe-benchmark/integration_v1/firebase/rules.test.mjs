@@ -1,0 +1,24 @@
+import {readFileSync} from 'node:fs';
+import {test, before, after, beforeEach} from 'node:test';
+import {initializeTestEnvironment, assertFails, assertSucceeds} from '@firebase/rules-unit-testing';
+import {ref,set,get,remove} from 'firebase/database';
+let env;
+const prefix='demo_e2e_v1/sessions/s1';
+const db=uid=>uid?env.authenticatedContext(uid).database():env.unauthenticatedContext().database();
+const sample=(extra={})=>({schema_version:2,session_id:'s1',exercise:'squat',sequence:1,sample_timestamp_ms:100,
+ timestamp:Date.now(),frame_received_epoch_ms:Date.now(),reps:0,angle:160,side:'left',phase:'READY',
+ tracking_status:'tracking',form_status:'not_evaluated',source:'camera',...extra});
+before(async()=>{env=await initializeTestEnvironment({projectId:'demo-smart-rehab',database:{host:'127.0.0.1',port:9000,rules:readFileSync(new URL('database.rules.json',import.meta.url),'utf8')}})});
+beforeEach(async()=>{await env.clearDatabase();await env.withSecurityRulesDisabled(async c=>set(ref(c.database(),'demo_e2e_v1/grants/s1'),{device_uid:'pi',owner_uid:'patient',viewers:{doctor:true}}))});
+after(async()=>env?.cleanup());
+test('device writes; patient/viewer read exact session',async()=>{await assertSucceeds(set(ref(db('pi'),prefix+'/latest'),sample()));for(const uid of ['patient','doctor','pi']) await assertSucceeds(get(ref(db(uid),prefix)))});
+test('anonymous and stranger cannot read or write',async()=>{for(const uid of [null,'stranger']){await assertFails(get(ref(db(uid),prefix)));await assertFails(set(ref(db(uid),prefix+'/latest'),sample()))}});
+test('viewers and owner cannot publish; device cannot grant roles or write another session',async()=>{for(const uid of ['doctor','patient']) await assertFails(set(ref(db(uid),prefix+'/latest'),sample()));await assertFails(set(ref(db('pi'),'demo_e2e_v1/grants/s1/viewers/pi'),true));await assertFails(set(ref(db('pi'),'demo_e2e_v1/sessions/s2/latest'),sample({session_id:'s2'})))});
+test('no listing all sessions or accessing legacy data',async()=>{await assertFails(get(ref(db('doctor'),'demo_e2e_v1/sessions')));await assertFails(set(ref(db('pi'),'sessions/s1/latest'),sample()))});
+test('null angle during lost works; null angle while tracking rejected',async()=>{await assertSucceeds(set(ref(db('pi'),prefix+'/latest'),sample({angle:null,tracking_status:'lost'})));await assertFails(set(ref(db('pi'),prefix+'/latest'),sample({sequence:2,sample_timestamp_ms:200,angle:null})))});
+test('duplicate, reverse timestamp, side/exercise change, decreasing reps rejected',async()=>{await assertSucceeds(set(ref(db('pi'),prefix+'/latest'),sample({reps:2})));for(const change of [{sequence:1},{sample_timestamp_ms:99},{side:'right'},{exercise:'biceps_curl'},{reps:1}]) await assertFails(set(ref(db('pi'),prefix+'/latest'),sample({sequence:2,sample_timestamp_ms:200,reps:2,...change})))});
+test('unknown payload, invalid angle, stale packet and wrong session rejected',async()=>{for(const change of [{image:'base64'},{angle:181},{timestamp:1},{frame_received_epoch_ms:1},{session_id:'s2'},{form_status:'correct'}])await assertFails(set(ref(db('pi'),prefix+'/latest'),sample(change)))});
+test('event replay is idempotent, event modification/deletion forbidden',async()=>{const event={id:'s1:rep:1',rep:1,start_ms:100,target_ms:600,end_ms:1200,duration_ms:1100,min_angle_deg:90,max_angle_deg:160,rom_deg:70};const r=ref(db('pi'),prefix+'/events/rep_000001');await assertSucceeds(set(r,event));await assertSucceeds(set(r,event));await assertFails(set(r,{...event,rep:2}));await assertFails(remove(r))});
+test('summary closes latest; summary cannot be rewritten',async()=>{const s={session_id:'s1',exercise:'squat',status:'completed',reps:3,ended_at:Date.now()};await assertSucceeds(set(ref(db('pi'),prefix+'/summary'),s));await assertFails(set(ref(db('pi'),prefix+'/latest'),sample()));await assertFails(set(ref(db('pi'),prefix+'/summary'),{...s,reps:8}))});
+test('profile remains accessible only to its owner; no parent listing',async()=>{await assertSucceeds(set(ref(db('patient'),'users/patient/profile'),{name:'Test fixture'}));await assertSucceeds(get(ref(db('patient'),'users/patient/profile')));for(const uid of [null,'doctor','pi']) {await assertFails(get(ref(db(uid),'users/patient/profile')));await assertFails(set(ref(db(uid),'users/patient/profile'),{name:'Not allowed'}));}await assertFails(get(ref(db('patient'),'users')));await assertFails(set(ref(db('patient'),'users/patient/admin'),true));});
+test('full candidate denies legacy stream and root updates',async()=>{for(const uid of [null,'patient','pi']) {await assertFails(get(ref(db(uid),'stream/legacy/frame')));await assertFails(set(ref(db(uid),'stream/legacy/frame'),'image'));await assertFails(get(ref(db(uid),'/')));await assertFails(set(ref(db(uid),'demo_e2e_v1/grants'),{}));}});

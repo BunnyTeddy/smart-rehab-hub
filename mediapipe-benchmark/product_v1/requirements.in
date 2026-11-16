@@ -1,0 +1,4 @@
+# Additional product dependencies; MediaPipe/NumPy/OpenCV stay at the existing pins.
+cryptography==46.0.5
+dbus-fast==3.1.2
+qrcode==8.2

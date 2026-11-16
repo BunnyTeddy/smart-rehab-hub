@@ -1,0 +1,12 @@
+{
+  "@type": "type.googleapis.com/google.firebase.service.v1beta1.AndroidApp",
+  "name": "projects/smart-rehab-hub/androidApps/1:863483580594:android:55a0e0ca5bb900d25079ab",
+  "appId": "1:863483580594:android:55a0e0ca5bb900d25079ab",
+  "displayName": "SMART REHAB Patient",
+  "projectId": "smart-rehab-hub",
+  "packageName": "com.smartrehabhub.patient",
+  "apiKeyId": "9f9598a5-9cc6-4ef9-ac77-988b247ec303",
+  "state": "ACTIVE",
+  "expireTime": "1970-01-01T00:00:00Z",
+  "etag": "1_834ddc7e-b456-4d0a-a2dd-36038bc2bf90"
+}

@@ -1,0 +1,60 @@
+{
+  "version": "phase1-0.2.0-draft",
+  "validation": "pending_human_development_and_independent_acceptance",
+  "purpose": "Provisional technical detection zones; not therapeutic ROM targets",
+  "selection_window_ms": 300,
+  "selection_visibility": 0.5,
+  "tracking_visibility": 0.5,
+  "max_gap_ms": 350,
+  "ema_tau_ms": 50,
+  "dwell_ms": 80,
+  "min_rep_ms": 500,
+  "exercises": {
+    "sit_to_stand": {
+      "joint": "knee",
+      "start": 110,
+      "target": 155,
+      "secondary": "hip",
+      "secondary_start_max": 125,
+      "secondary_target_min": 150
+    },
+    "seated_knee_extension": {
+      "joint": "knee",
+      "start": 110,
+      "target": 155,
+      "hip_min": 70,
+      "hip_max": 120,
+      "trunk_max": 25
+    },
+    "seated_hip_flexion": {
+      "joint": "hip",
+      "start": 85,
+      "target": 65,
+      "knee_min": 65,
+      "knee_max": 120,
+      "trunk_max": 25
+    },
+    "shoulder_flexion": {
+      "joint": "shoulder",
+      "start": 35,
+      "target": 65,
+      "trunk_max": 20
+    },
+    "shoulder_abduction": {
+      "joint": "shoulder",
+      "start": 35,
+      "target": 65,
+      "trunk_max": 20,
+      "outward": "arm"
+    },
+    "standing_hip_abduction": {
+      "joint": "hip",
+      "start": 170,
+      "target": 155,
+      "knee_min": 150,
+      "support_knee_min": 150,
+      "trunk_max": 15,
+      "outward": "leg"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {parseSample,acceptSample,stateOf,chartPoint,validSummary,validId} from './session.js';
+const sample=(extra={})=>({schema_version:2,session_id:'s1',exercise:'squat',sequence:1,reps:0,timestamp:100000,sample_timestamp_ms:100,frame_received_epoch_ms:100000,angle:160,side:'left',tracking_status:'tracking',phase:'READY',form_status:'not_evaluated',source:'camera',...extra});
+test('parser validates session, finite angles, canonical exercise',()=>{assert.ok(parseSample(sample(),'s1'));for(const change of [{angle:NaN},{angle:181},{exercise:'lateral_raise'},{session_id:'s2'},{form_status:'correct'}]) assert.equal(parseSample(sample(change),'s1'),null);assert.equal(validId('../s1'),false)});
+test('null never means zero angle',()=>{assert.equal(parseSample(sample({angle:null,tracking_status:'lost'}),'s1').angle,null);assert.equal(parseSample(sample({angle:null}),'s1'),null)});
+test('out of order does not increase reps; invalid transitions rejected',()=>{const old=sample();assert.equal(acceptSample(old,sample({reps:9}),'s1',100000).sample.reps,0);for(const change of [{exercise:'biceps_curl'},{side:'right'},{timestamp:110000}]) assert.ok(acceptSample(old,sample({sequence:2,sample_timestamp_ms:200,...change}),'s1',100000).error)});
+test('fresh network send cannot make an old frame fresh',()=>{assert.equal(stateOf(sample(),101000,102000,null,null),'stale');assert.equal(stateOf(null,0,100000,null,null),'waiting')});
+test('chart disconnects data gaps and null joints',()=>{assert.equal(chartPoint(sample(),sample({sample_timestamp_ms:500}))[0].y,null);assert.equal(chartPoint(null,sample({angle:null}))[0].y,null)});
+test('summary exact binding, no count regression and terminal status',()=>{const s={session_id:'s1',exercise:'squat',reps:4,ended_at:110000,status:'completed'};assert.ok(validSummary(s,'s1',sample()));assert.equal(validSummary(s,'s2',sample()),false);assert.equal(validSummary(s,'s1',sample({reps:5})),false);assert.equal(stateOf(sample(),0,999999,null,s),'ended')});

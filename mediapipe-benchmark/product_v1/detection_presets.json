@@ -1,0 +1,17 @@
+{
+  "version": "product-low-rom-1.2.1",
+  "purpose": "Reduced technical detection zones for low-rate Pi 4 webcam input; not therapeutic ROM targets",
+  "selection_window_ms": 300,
+  "selection_visibility": 0.5,
+  "tracking_visibility": 0.5,
+  "max_gap_ms": 800,
+  "ema_tau_ms": 50,
+  "dwell_ms": 80,
+  "min_rep_ms": 500,
+  "exercises": {
+    "squat": {"joint": "knee", "start": 145, "target": 135},
+    "biceps_curl": {"joint": "elbow", "start": 140, "target": 115},
+    "shoulder_flexion": {"joint": "shoulder", "start": 40, "target": 55, "trunk_max": 20},
+    "shoulder_abduction": {"joint": "shoulder", "start": 40, "target": 55, "trunk_max": 20, "outward": "arm"}
+  }
+}
